@@ -6,11 +6,14 @@
     android:orientation="vertical"
     tools:context=".view.main.tabs.todayscomic.TodaysComicFragment">
 
-    <com.skillshare.xkcd.view.component.comicimageview.ComicImageView
-        android:id="@+id/todays_comic_comic_image"
+    <ImageView
+        android:id="@+id/todays_comic_image"
         android:layout_weight="50"
+        android:padding="@dimen/margin_medium"
+        android:src="@drawable/ic_launcher_foreground"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp"
+        android:background="@android:color/white"/>
 
     <LinearLayout
         android:gravity="center_horizontal"
