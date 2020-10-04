@@ -1,5 +1,6 @@
 package com.skillshare.xkcd.view.main.tabs.todayscomic;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.skillshare.xkcd.R;
+import com.skillshare.xkcd.view.fullscreen.FullscreenActivity;
 
 public class TodaysComicFragment extends Fragment {
 
@@ -35,6 +37,13 @@ public class TodaysComicFragment extends Fragment {
         comicImageView = view.findViewById(R.id.todays_comic_image);
         titleView = view.findViewById(R.id.todays_comic_title);
         altTextView = view.findViewById(R.id.todays_comic_alt_text);
+        comicImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), FullscreenActivity.class);
+                getContext().startActivity(intent);
+            }
+        });
         return view;
     }
 
