@@ -2,6 +2,8 @@ package com.skillshare.xkcd.view.fullscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -16,6 +18,16 @@ class FullscreenActivity : AppCompatActivity() {
     private lateinit var altTextView: TextView
     private lateinit var fullscreenOverlay: ViewGroup
     private lateinit var fullScreenHandler: FullScreenHandler
+
+    companion object {
+        private const val EXTRA_COMIC_ID = "comic_id"
+        @JvmStatic
+        fun getLaunchIntent(context: Context, comicId: Int): Intent {
+            val intent = Intent(context, FullscreenActivity::class.java)
+            intent.putExtra(EXTRA_COMIC_ID, comicId)
+            return intent
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

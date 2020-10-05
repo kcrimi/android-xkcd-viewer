@@ -37,13 +37,7 @@ public class TodaysComicFragment extends Fragment {
         comicImageView = view.findViewById(R.id.todays_comic_image);
         titleView = view.findViewById(R.id.todays_comic_title);
         altTextView = view.findViewById(R.id.todays_comic_alt_text);
-        comicImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), FullscreenActivity.class);
-                getContext().startActivity(intent);
-            }
-        });
+        comicImageView.setOnClickListener(v -> presenter.onClickComic());
         return view;
     }
 
@@ -56,6 +50,11 @@ public class TodaysComicFragment extends Fragment {
     }
 
     public void setComicImageViewComic(String url, int comicId) {
-        // TODO Load comic image and set click listener
+        // TODO Load comic image
+    }
+
+    public void launchFullscreenActivity(int comicId) {
+        Intent intent = FullscreenActivity.getLaunchIntent(getContext(), comicId);
+        getContext().startActivity(intent);
     }
 }
