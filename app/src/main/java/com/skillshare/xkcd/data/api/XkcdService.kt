@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface XkcdService {
     @GET("info.0.json")
-    fun getCurrentComic() : Single<Comic>
+    fun getTodaysComic() : Single<Comic>
 
     @GET("{comicId}/info.0.json")
     fun getComic(@Path("comicId") comicId: Int) : Single<Comic>

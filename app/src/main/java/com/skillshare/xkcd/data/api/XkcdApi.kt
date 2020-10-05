@@ -16,8 +16,8 @@ object XkcdApi {
 
     private val service  = retrofit.create(XkcdService::class.java)
 
-    fun getCurrentComic(): Single<Comic> {
-        return service.getCurrentComic()
+    fun getTodaysComic(): Single<Comic> {
+        return service.getTodaysComic()
     }
 
     fun getComic(comicId: Int): Single<Comic> {
