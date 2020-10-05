@@ -35,6 +35,7 @@ public class TodaysComicFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_todays_comic, container, false);
+        presenter.attach();
         comicImageView = view.findViewById(R.id.todays_comic_image);
         titleView = view.findViewById(R.id.todays_comic_title);
         altTextView = view.findViewById(R.id.todays_comic_alt_text);
