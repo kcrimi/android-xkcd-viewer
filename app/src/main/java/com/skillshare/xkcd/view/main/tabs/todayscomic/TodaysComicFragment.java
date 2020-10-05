@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.skillshare.xkcd.R;
 import com.skillshare.xkcd.view.fullscreen.FullscreenActivity;
 
@@ -50,7 +51,7 @@ public class TodaysComicFragment extends Fragment {
     }
 
     public void setComicImageViewComic(String url) {
-        // TODO Load comic image
+        Glide.with(this).load(url).into(comicImageView);
     }
 
     public void launchFullscreenActivity(int comicId) {
