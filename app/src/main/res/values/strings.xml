@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Xkcd Viewer</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+<!--    -->
     <string name="title_todays_comic">Today</string>
-    <string name="title_select_comic">Search</string>
+    <string name="title_comic_catalog">Catalog</string>
     <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="comic_catalog_placeholder">This tab should have a an infinite scroll list of all comics</string>
 </resources>

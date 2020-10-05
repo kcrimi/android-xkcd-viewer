@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.skillshare.xkcd.R;
+import com.skillshare.xkcd.view.main.tabs.comiclist.ComicListFragment;
 import com.skillshare.xkcd.view.main.tabs.todayscomic.TodaysComicFragment;
 
 public class MainPagerAdapter extends FragmentPagerAdapter {
@@ -30,7 +31,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
                 return new TodaysComicFragment();
             case PAGE_COMIC_LIST:
                 // TODO Replace with comic list fragment
-                return new TodaysComicFragment();
+                return new ComicListFragment();
             default:
                 return null;
         }
@@ -48,7 +49,7 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
             case PAGE_TODAYS_COMIC:
                 return resources.getString(R.string.title_todays_comic);
             case PAGE_COMIC_LIST:
-                return resources.getString(R.string.title_select_comic);
+                return resources.getString(R.string.title_comic_catalog);
             default:
                 return "";
         }
