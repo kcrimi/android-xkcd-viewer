@@ -18,7 +18,7 @@ public class TodaysComicPresenter {
     private void updateView() {
         view.setAltText(comic.getAltText());
         view.setTitle(comic.getTitle());
-        view.setComicImageViewComic(comic.getImageUrl(), comic.getId());
+        view.setComicImageViewComic(comic.getImageUrl());
     }
 
     public void onClickComic() {

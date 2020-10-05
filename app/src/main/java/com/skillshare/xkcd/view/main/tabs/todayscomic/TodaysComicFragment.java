@@ -49,7 +49,7 @@ public class TodaysComicFragment extends Fragment {
         titleView.setText(text);
     }
 
-    public void setComicImageViewComic(String url, int comicId) {
+    public void setComicImageViewComic(String url) {
         // TODO Load comic image
     }
 
