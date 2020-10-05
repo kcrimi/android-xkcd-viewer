@@ -7,10 +7,13 @@ import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import com.skillshare.xkcd.R
 
 class FullscreenActivity : AppCompatActivity() {
     private lateinit var fullscreenImage: ImageView
+    private lateinit var titleView: TextView
+    private lateinit var altTextView: TextView
     private lateinit var fullscreenOverlay: ViewGroup
     private lateinit var fullScreenHandler: FullScreenHandler
 
