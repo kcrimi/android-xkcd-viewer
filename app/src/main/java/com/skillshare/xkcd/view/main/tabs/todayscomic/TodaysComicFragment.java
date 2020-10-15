@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.skillshare.xkcd.R;
 import com.skillshare.xkcd.view.fullscreen.FullscreenActivity;
 
@@ -34,6 +35,7 @@ public class TodaysComicFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_todays_comic, container, false);
+        presenter.attach();
         comicImageView = view.findViewById(R.id.todays_comic_image);
         titleView = view.findViewById(R.id.todays_comic_title);
         altTextView = view.findViewById(R.id.todays_comic_alt_text);
@@ -50,7 +52,7 @@ public class TodaysComicFragment extends Fragment {
     }
 
     public void setComicImageViewComic(String url) {
-        // TODO Load comic image
+        Glide.with(this).load(url).into(comicImageView);
     }
 
     public void launchFullscreenActivity(int comicId) {
