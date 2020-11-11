@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.skillshare.xkcd.R
 
 class FullscreenActivity : AppCompatActivity() {
@@ -18,6 +20,7 @@ class FullscreenActivity : AppCompatActivity() {
     private lateinit var altTextView: TextView
     private lateinit var fullscreenOverlay: ViewGroup
     private lateinit var fullScreenHandler: FullScreenHandler
+    private val viewModel = FullscreenViewModel()
 
     companion object {
         private const val EXTRA_COMIC_ID = "comic_id"
@@ -34,9 +37,27 @@ class FullscreenActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_fullscreen)
 
+        titleView = findViewById(R.id.fullscreen_title)
+        altTextView = findViewById(R.id.fullscreen_alt_text)
         fullscreenImage = findViewById(R.id.fullscreen_image)
         fullscreenOverlay = findViewById(R.id.fullscreen_content_controls)
         fullScreenHandler = FullScreenHandler(fullscreenImage, fullscreenOverlay)
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.title.observe(this, Observer { titleView.text = it })
+        viewModel.altText.observe(this, Observer { altTextView.text = it })
+        viewModel.url.observe(this, Observer {
+            Glide.with(this).load(it).into(fullscreenImage)
+        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        intent?.extras?.getInt(EXTRA_COMIC_ID)?.let {
+            viewModel.attach(it)
+        }
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
